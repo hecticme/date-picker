@@ -1,4 +1,8 @@
 import { useState } from 'react';
+// Utilities
+import dayjs from 'dayjs';
+// Components
+import ClipboardBtn from '@components/common/ClipboardBtn';
 
 type Timestamp = {
   hour: number;
@@ -7,11 +11,18 @@ type Timestamp = {
 };
 
 const DateToEpoch = () => {
+  const [date, setDate] = useState(dayjs().format('YYYY-MM-DD'));
   const [timestamp, setTimestamp] = useState<Timestamp>({
     hour: 12,
     minute: 0,
     second: 0,
   });
+
+  const chosenDate = dayjs(date)
+    .hour(timestamp.hour)
+    .minute(timestamp.minute)
+    .second(timestamp.second);
+  console.log(chosenDate);
 
   return (
     <div className="flex flex-col gap-2">
@@ -23,6 +34,10 @@ const DateToEpoch = () => {
         type="date"
         id="date"
         className="px-2 py-1 outline outline-1 outline-gray-900 rounded"
+        value={date}
+        onChange={(e) => {
+          setDate(e.target.value);
+        }}
       />
 
       <section className="flex flex-col gap-2">
@@ -32,7 +47,9 @@ const DateToEpoch = () => {
 
         <p>Or more specific:</p>
 
-        <SpecificTimestamp timestamp={timestamp} />
+        <SpecificTimestamp timestamp={timestamp} setTimestamp={setTimestamp} />
+
+        <ConvertedResult date={chosenDate} />
       </section>
     </div>
   );
@@ -93,9 +110,22 @@ const TimestampButtons = ({ setTimestamp }: TimestampButtonsProps) => {
 
 type SpecificTimestampProps = {
   timestamp: Timestamp;
+  setTimestamp: React.Dispatch<React.SetStateAction<Timestamp>>;
 };
 
-const SpecificTimestamp = ({ timestamp }: SpecificTimestampProps) => {
+const SpecificTimestamp = ({
+  timestamp,
+  setTimestamp,
+}: SpecificTimestampProps) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const [id, value] = [e.target.id, e.target.value];
+
+    setTimestamp((prev) => ({
+      ...prev,
+      [id]: Number(value),
+    }));
+  };
+
   return (
     <div className="grid grid-cols-[1fr,3fr] gap-2 items-center">
       <label htmlFor="hour" className="font-bold">
@@ -104,7 +134,10 @@ const SpecificTimestamp = ({ timestamp }: SpecificTimestampProps) => {
       <input
         id="hour"
         type="number"
+        min={0}
+        max={23}
         value={timestamp.hour}
+        onChange={handleChange}
         className="outline outline-1 outline-gray-900 rounded px-2 py-1"
       />
 
@@ -114,7 +147,10 @@ const SpecificTimestamp = ({ timestamp }: SpecificTimestampProps) => {
       <input
         id="minute"
         type="number"
+        min={0}
+        max={60}
         value={timestamp.minute}
+        onChange={handleChange}
         className="outline outline-1 outline-gray-900 rounded px-2 py-1"
       />
 
@@ -124,10 +160,56 @@ const SpecificTimestamp = ({ timestamp }: SpecificTimestampProps) => {
       <input
         id="second"
         type="number"
+        min={0}
+        max={60}
         value={timestamp.second}
+        onChange={handleChange}
         className="outline outline-1 outline-gray-900 rounded px-2 py-1"
       />
     </div>
+  );
+};
+
+const ConvertedResult = ({ date }: { date: dayjs.Dayjs }) => {
+  const humanDate = date.format('DD/MM/YYYY HH:mm:ss');
+  const unix = date.unix();
+  const unixMilli = date.valueOf();
+
+  return (
+    <section className="flex flex-col gap-2">
+      <div className="h-1 bg-gray-700 my-2 rounded"></div>
+
+      <div className="flex justify-between gap-2 px-2 py-1 outline outline-1 outline-gray-400 rounded">
+        <p>
+          <span className="font-bold">Human-readable time:</span> {humanDate}
+        </p>
+
+        <ClipboardBtn content={humanDate} />
+      </div>
+
+      <div className="flex gap-2 px-2 py-1 outline outline-1 outline-gray-400 rounded">
+        <p className="font-bold">Epoch time: </p>
+
+        <div className="flex-grow flex flex-col gap-1">
+          <div className="flex justify-between gap-2 items-center">
+            <p>
+              {unix} <span className="text-sm text-gray-500">(seconds)</span>
+            </p>
+
+            <ClipboardBtn content={unix} />
+          </div>
+
+          <div className="flex justify-between gap-2 items-center">
+            <p>
+              {unixMilli}{' '}
+              <span className="text-sm text-gray-500">(milliseconds)</span>
+            </p>
+
+            <ClipboardBtn content={unixMilli} />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
