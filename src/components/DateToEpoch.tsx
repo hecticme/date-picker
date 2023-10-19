@@ -3,6 +3,7 @@ import { useState } from 'react';
 import dayjs from 'dayjs';
 // Components
 import ConvertedResult from '@components/ConvertedResult';
+import { ShortDivider } from '@components/common/Divider';
 
 type Timestamp = {
   hour: number;
@@ -25,7 +26,9 @@ const DateToEpoch = () => {
   console.log(chosenDate);
 
   return (
-    <div className="flex flex-col gap-2">
+    <section className="flex flex-col gap-2">
+      <h2 className="font-bold text-2xl">Human-readable format to Epoch</h2>
+
       <label htmlFor="date" className="font-bold text-lg">
         Date
       </label>
@@ -49,9 +52,11 @@ const DateToEpoch = () => {
 
         <SpecificTimestamp timestamp={timestamp} setTimestamp={setTimestamp} />
 
+        <ShortDivider />
+
         <ConvertedResult date={chosenDate} />
       </section>
-    </div>
+    </section>
   );
 };
 

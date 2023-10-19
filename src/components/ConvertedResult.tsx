@@ -8,8 +8,6 @@ const ConvertedResult = ({ date }: { date: dayjs.Dayjs }) => {
 
   return (
     <section className="flex flex-col gap-2">
-      <div className="h-1 bg-gray-700 my-2 rounded"></div>
-
       <div className="flex justify-between gap-2 px-2 py-1 outline outline-1 outline-gray-400 rounded">
         <p>
           <span className="font-bold">Human-readable time:</span> {humanDate}
