@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 // Redux
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { changeTheme } from '@store/themeSlice';
@@ -43,25 +43,23 @@ export default function ThemeButton() {
   const theme = useAppSelector((state) => state.theme);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    switch (theme) {
-      case 'dark': {
+  switch (theme) {
+    case 'dark': {
+      document.body.classList.add('dark');
+      break;
+    }
+    case 'light': {
+      document.body.classList.remove('dark');
+      break;
+    }
+    default: {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark');
-        break;
-      }
-      case 'light': {
+      } else {
         document.body.classList.remove('dark');
-        break;
-      }
-      default: {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.body.classList.add('dark');
-        } else {
-          document.body.classList.remove('dark');
-        }
       }
     }
-  }, [theme]);
+  }
 
   const handleChangeTheme = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
