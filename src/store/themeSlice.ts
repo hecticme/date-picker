@@ -5,8 +5,7 @@ function getTheme() {
   if (storageTheme !== null) {
     return storageTheme;
   } else {
-    const systemTheme = window.matchMedia('(prefers-color-scheme: light)');
-    return systemTheme ? 'light' : 'dark';
+    return 'system';
   }
 }
 
@@ -14,10 +13,14 @@ const themeSlice = createSlice({
   name: 'theme',
   initialState: getTheme(),
   reducers: {
-    changeTheme(_, action: PayloadAction<'light' | 'dark'>) {
+    changeTheme(_, action: PayloadAction<string>) {
+      if (action.payload === 'system') {
+        localStorage.removeItem('theme');
+      }
       return action.payload;
     },
   },
 });
 
 export default themeSlice.reducer;
+export const { changeTheme } = themeSlice.actions;
