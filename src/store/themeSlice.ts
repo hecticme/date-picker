@@ -16,6 +16,8 @@ const themeSlice = createSlice({
     changeTheme(_, action: PayloadAction<string>) {
       if (action.payload === 'system') {
         localStorage.removeItem('theme');
+      } else {
+        localStorage.setItem('theme', action.payload);
       }
       return action.payload;
     },
