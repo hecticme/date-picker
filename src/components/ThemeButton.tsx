@@ -89,7 +89,9 @@ export default function ThemeButton() {
             <li key={index}>
               <button
                 className={`px-2 py-1 w-full hover:bg-gray-200 transition-colors rounded text-left flex gap-2 justify-between items-center ${
-                  themeOption.value === theme ? 'bg-gray-300' : ''
+                  themeOption.value === theme
+                    ? 'bg-gray-300 hover:bg-gray-300 pointer-events-none'
+                    : ''
                 }`}
                 value={themeOption.value}
                 onClick={handleChangeTheme}
