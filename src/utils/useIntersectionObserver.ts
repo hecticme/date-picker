@@ -1,13 +1,21 @@
 import { useEffect, useState, useRef } from 'react';
 
-export default function useIntersectionObserver() {
+type ObserverType = {
+  root: Element | null;
+  rootMargin: string;
+  thresholds: number[] | number;
+};
+
+export default function useIntersectionObserver(
+  options?: Partial<ObserverType>,
+) {
   const ref = useRef(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      setIsIntersecting(!entry.isIntersecting);
-    });
+      setIsIntersecting(entry.isIntersecting);
+    }, options);
 
     if (ref.current) {
       observer.observe(ref.current);
@@ -16,7 +24,7 @@ export default function useIntersectionObserver() {
     return () => {
       observer.disconnect();
     };
-  });
+  }, [ref]);
 
   return { ref, isIntersecting };
 }

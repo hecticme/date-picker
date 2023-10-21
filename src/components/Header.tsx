@@ -4,7 +4,9 @@ import ThemeButton from './ThemeButton';
 import useIntersectionObserver from '@utils/useIntersectionObserver';
 
 const Header = () => {
-  const { ref, isIntersecting } = useIntersectionObserver();
+  const { ref, isIntersecting } = useIntersectionObserver({
+    rootMargin: '30px',
+  });
 
   return (
     <>
@@ -12,7 +14,7 @@ const Header = () => {
       <div ref={ref}></div>
       <header
         className={`sticky top-0 z-10 transition-colors duration-300 ${
-          isIntersecting
+          !isIntersecting
             ? 'bg-gray-900/80 before:backdrop-blur-sm before:absolute before:inset-0 before:-z-10'
             : ''
         }`}
@@ -23,7 +25,7 @@ const Header = () => {
           <section className="flex gap-5 items-center">
             <h1
               className={`font-bold text-2xl ${
-                isIntersecting ? 'text-gray-100' : ''
+                !isIntersecting ? 'text-gray-100' : ''
               }`}
             >
               Epoch Date Picker
