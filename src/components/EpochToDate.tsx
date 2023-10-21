@@ -12,9 +12,7 @@ export default function EpochToDate() {
 
   return (
     <section className="flex flex-col gap-2">
-      <h2 className="mb-2 font-bold text-2xl">
-        Epoch to Human-readable format
-      </h2>
+      <h2 className="mb-2 font-bold text-xl">Epoch to Human-readable format</h2>
 
       <div className="flex gap-2 items-center">
         <label htmlFor="unix" className="font-bold whitespace-nowrap">

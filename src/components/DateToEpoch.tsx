@@ -27,28 +27,30 @@ const DateToEpoch = () => {
 
   return (
     <section className="flex flex-col gap-2">
-      <h2 className="font-bold text-2xl">Human-readable format to Epoch</h2>
+      <h2 className="font-bold text-xl">Human-readable format to Epoch</h2>
 
-      <label htmlFor="date" className="font-bold text-lg">
-        Date
-      </label>
+      <div className="flex gap-3 items-center">
+        <label htmlFor="date" className="text-lg">
+          Date:
+        </label>
 
-      <input
-        type="date"
-        id="date"
-        className="px-2 py-1 outline outline-1 outline-gray-900 rounded"
-        value={date}
-        onChange={(e) => {
-          setDate(e.target.value);
-        }}
-      />
+        <input
+          type="date"
+          id="date"
+          className="px-2 py-1 outline outline-1 outline-gray-900 rounded flex-grow"
+          value={date}
+          onChange={(e) => {
+            setDate(e.target.value);
+          }}
+        />
+      </div>
 
       <section className="flex flex-col gap-2">
-        <h3 className="font-bold text-lg">Timestamp</h3>
+        <h3 className="text-lg">Timestamp:</h3>
 
         <TimestampButtons setTimestamp={setTimestamp} />
 
-        <p>Or more specific:</p>
+        <p className="text-gray-500">Or more specific:</p>
 
         <SpecificTimestamp timestamp={timestamp} setTimestamp={setTimestamp} />
 
@@ -132,45 +134,60 @@ const SpecificTimestamp = ({
   };
 
   return (
-    <div className="grid grid-cols-[1fr,3fr] gap-2 items-center">
-      <label htmlFor="hour" className="font-bold">
-        Hour:
-      </label>
-      <input
-        id="hour"
-        type="number"
-        min={0}
-        max={23}
-        value={timestamp.hour}
-        onChange={handleChange}
-        className="outline outline-1 outline-gray-900 rounded px-2 py-1"
-      />
+    <div className="flex gap-2 gap-y-2 gap-x-4 items-center mt-2">
+      <div className="flex gap-2 flex-grow items-center relative">
+        <label
+          htmlFor="hour"
+          className="absolute bg-gray-900 text-gray-100 rounded-full px-2 text-sm -top-[50%] -left-1"
+        >
+          Hour:
+        </label>
+        <input
+          id="hour"
+          type="number"
+          min={0}
+          max={23}
+          value={timestamp.hour}
+          onChange={handleChange}
+          className="flex-grow outline outline-1 outline-gray-900 rounded px-2 py-1"
+        />
+      </div>
 
-      <label htmlFor="minute" className="font-bold">
-        Minute:
-      </label>
-      <input
-        id="minute"
-        type="number"
-        min={0}
-        max={60}
-        value={timestamp.minute}
-        onChange={handleChange}
-        className="outline outline-1 outline-gray-900 rounded px-2 py-1"
-      />
+      <div className="flex gap-2 flex-grow items-center relative">
+        <label
+          htmlFor="minute"
+          className="absolute bg-gray-900 text-gray-100 rounded-full px-2 text-sm -top-[50%] -left-1"
+        >
+          Minute:
+        </label>
+        <input
+          id="minute"
+          type="number"
+          min={0}
+          max={60}
+          value={timestamp.minute}
+          onChange={handleChange}
+          className="flex-grow outline outline-1 outline-gray-900 rounded px-2 py-1"
+        />
+      </div>
 
-      <label htmlFor="second" className="font-bold">
-        Second:
-      </label>
-      <input
-        id="second"
-        type="number"
-        min={0}
-        max={60}
-        value={timestamp.second}
-        onChange={handleChange}
-        className="outline outline-1 outline-gray-900 rounded px-2 py-1"
-      />
+      <div className="flex gap-2 flex-grow items-center relative">
+        <label
+          htmlFor="second"
+          className="absolute bg-gray-900 text-gray-100 rounded-full px-2 text-sm -top-[50%] -left-1"
+        >
+          Second:
+        </label>
+        <input
+          id="second"
+          type="number"
+          min={0}
+          max={60}
+          value={timestamp.second}
+          onChange={handleChange}
+          className="flex-grow outline outline-1 outline-gray-900 rounded px-2 py-1"
+        />
+      </div>
     </div>
   );
 };

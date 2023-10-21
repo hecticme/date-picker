@@ -1,4 +1,5 @@
 import { useState } from 'react';
+// Components
 import Header from '@components/Header';
 import DatePicker from '@components/DatePicker';
 import InstancesAmountSelect from '@components/InstancesAmountSelect';
@@ -13,7 +14,7 @@ function App() {
       <main className="pt-12">
         <InstancesAmountSelect setValue={setInstancesAmount} />
 
-        <section className="flex flex-wrap gap-10 justify-center">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-center">
           {[...Array(instancesAmount).keys()].map((instance) => (
             <DatePicker key={instance} />
           ))}
