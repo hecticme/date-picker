@@ -29,7 +29,11 @@ export const InstancesAmountSelect = ({
         }}
       >
         {options.map((option) => {
-          return <option value={option.value}>{option.label}</option>;
+          return (
+            <option value={option.value} key={option.value}>
+              {option.label}
+            </option>
+          );
         })}
       </select>
     </div>

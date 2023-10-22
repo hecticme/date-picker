@@ -154,7 +154,10 @@ const SpecificTimestamp = ({
           element.value > element.max || element.value < element.min;
 
         return (
-          <div className="flex gap-2 flex-grow items-center relative">
+          <div
+            className="flex gap-2 flex-grow items-center relative"
+            key={element.id}
+          >
             <label
               htmlFor={element.id}
               className="absolute bg-gray-900 text-gray-100 dark:bg-gray-700 rounded-full px-2 text-sm -top-[50%] -left-1 capitalize"
