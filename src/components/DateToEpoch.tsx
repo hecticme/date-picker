@@ -23,7 +23,6 @@ const DateToEpoch = () => {
     .hour(timestamp.hour)
     .minute(timestamp.minute)
     .second(timestamp.second);
-  console.log(chosenDate);
 
   return (
     <section className="flex flex-col gap-2">
@@ -129,65 +128,54 @@ const SpecificTimestamp = ({
 
     setTimestamp((prev) => ({
       ...prev,
-      [id]: Number(value),
+      [id]: value ? Number(value) : null,
     }));
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement, Element>) => {
+    const [id, value] = [e.target.id, e.target.value];
+
+    if (value == '') {
+      setTimestamp((prev) => ({
+        ...prev,
+        [id]: 0,
+      }));
+    }
   };
 
   return (
     <div className="flex gap-2 gap-y-2 gap-x-4 items-center mt-2">
-      <div className="flex gap-2 flex-grow items-center relative">
-        <label
-          htmlFor="hour"
-          className="absolute bg-gray-900 text-gray-100 rounded-full px-2 text-sm -top-[50%] -left-1"
-        >
-          Hour:
-        </label>
-        <input
-          id="hour"
-          type="number"
-          min={0}
-          max={23}
-          value={timestamp.hour}
-          onChange={handleChange}
-          className="flex-grow outline outline-1 outline-gray-900 rounded px-2 py-1"
-        />
-      </div>
+      {[
+        { id: 'hour', min: 0, max: 23, value: timestamp.hour },
+        { id: 'minute', min: 0, max: 59, value: timestamp.minute },
+        { id: 'second', min: 0, max: 59, value: timestamp.second },
+      ].map((element) => {
+        const isInvalidValue =
+          element.value > element.max || element.value < element.min;
 
-      <div className="flex gap-2 flex-grow items-center relative">
-        <label
-          htmlFor="minute"
-          className="absolute bg-gray-900 text-gray-100 rounded-full px-2 text-sm -top-[50%] -left-1"
-        >
-          Minute:
-        </label>
-        <input
-          id="minute"
-          type="number"
-          min={0}
-          max={60}
-          value={timestamp.minute}
-          onChange={handleChange}
-          className="flex-grow outline outline-1 outline-gray-900 rounded px-2 py-1"
-        />
-      </div>
-
-      <div className="flex gap-2 flex-grow items-center relative">
-        <label
-          htmlFor="second"
-          className="absolute bg-gray-900 text-gray-100 rounded-full px-2 text-sm -top-[50%] -left-1"
-        >
-          Second:
-        </label>
-        <input
-          id="second"
-          type="number"
-          min={0}
-          max={60}
-          value={timestamp.second}
-          onChange={handleChange}
-          className="flex-grow outline outline-1 outline-gray-900 rounded px-2 py-1"
-        />
-      </div>
+        return (
+          <div className="flex gap-2 flex-grow items-center relative">
+            <label
+              htmlFor={element.id}
+              className="absolute bg-gray-900 text-gray-100 rounded-full px-2 text-sm -top-[50%] -left-1 capitalize"
+            >
+              {element.id}:
+            </label>
+            <input
+              id={element.id}
+              type="number"
+              min={element.min}
+              max={element.max}
+              value={element.value ?? ''}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={`flex-grow outline outline-1 outline-gray-900 rounded px-2 py-1 ${
+                isInvalidValue ? 'outline-red-500 outline-2' : ''
+              }`}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };
