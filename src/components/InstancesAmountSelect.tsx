@@ -23,7 +23,7 @@ export const InstancesAmountSelect = ({
       <select
         name="date-picker-instances-amount"
         id="date-picker-instances-amount"
-        className="px-2 py-1 bg-gray-200 rounded cursor-pointer"
+        className="px-2 py-1 bg-gray-200 rounded cursor-pointer dark:bg-gray-500"
         onChange={(e) => {
           setValue(Number(e.target.value));
         }}

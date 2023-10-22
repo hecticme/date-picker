@@ -36,7 +36,7 @@ const DateToEpoch = () => {
         <input
           type="date"
           id="date"
-          className="px-2 py-1 outline outline-1 outline-gray-900 rounded flex-grow"
+          className="px-2 py-1 outline outline-1 outline-gray-900 rounded flex-grow dark:bg-gray-500 dark:outline-gray-200"
           value={date}
           onChange={(e) => {
             setDate(e.target.value);
@@ -49,7 +49,7 @@ const DateToEpoch = () => {
 
         <TimestampButtons setTimestamp={setTimestamp} />
 
-        <p className="text-gray-500">Or more specific:</p>
+        <p className="text-gray-500 dark:text-gray-400">Or more specific:</p>
 
         <SpecificTimestamp timestamp={timestamp} setTimestamp={setTimestamp} />
 
@@ -101,7 +101,7 @@ const TimestampButtons = ({ setTimestamp }: TimestampButtonsProps) => {
       {timestampButtonsList.map((element, index) => (
         <button
           key={index}
-          className="px-3 py-2 rounded bg-gray-900 text-gray-100 hover:bg-gray-700 transition-colors font-bold flex-grow"
+          className="px-3 py-2 rounded bg-gray-900 text-gray-100 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors font-bold flex-grow"
           onClick={() => {
             setTimestamp(element.timestamp);
           }}
@@ -157,7 +157,7 @@ const SpecificTimestamp = ({
           <div className="flex gap-2 flex-grow items-center relative">
             <label
               htmlFor={element.id}
-              className="absolute bg-gray-900 text-gray-100 rounded-full px-2 text-sm -top-[50%] -left-1 capitalize"
+              className="absolute bg-gray-900 text-gray-100 dark:bg-gray-700 rounded-full px-2 text-sm -top-[50%] -left-1 capitalize"
             >
               {element.id}:
             </label>
@@ -169,8 +169,10 @@ const SpecificTimestamp = ({
               value={element.value ?? ''}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`flex-grow outline outline-1 outline-gray-900 rounded px-2 py-1 ${
-                isInvalidValue ? 'outline-red-500 outline-2' : ''
+              className={`flex-grow outline outline-1 outline-gray-900 dark:bg-gray-500 dark:outline-gray-200 rounded px-2 py-1 ${
+                isInvalidValue
+                  ? 'outline-red-500 outline-2 dark:outline-red-500'
+                  : ''
               }`}
             />
           </div>

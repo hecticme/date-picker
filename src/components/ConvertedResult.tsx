@@ -21,7 +21,10 @@ const ConvertedResult = ({ date }: { date: dayjs.Dayjs }) => {
       <div className="flex flex-col gap-1 px-2 py-1 outline outline-1 outline-gray-400 rounded">
         <div className="flex justify-between gap-2 items-center">
           <p>
-            {unix} <span className="text-sm text-gray-500">(seconds)</span>
+            {unix}{' '}
+            <span className="text-sm text-gray-500 dark:text-gray-400">
+              (seconds)
+            </span>
           </p>
 
           <ClipboardBtn content={unix} />
@@ -30,7 +33,9 @@ const ConvertedResult = ({ date }: { date: dayjs.Dayjs }) => {
         <div className="flex justify-between gap-2 items-center">
           <p>
             {unixMilli}{' '}
-            <span className="text-sm text-gray-500">(milliseconds)</span>
+            <span className="text-sm text-gray- dark:text-gray-400">
+              (milliseconds)
+            </span>
           </p>
 
           <ClipboardBtn content={unixMilli} />
