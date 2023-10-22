@@ -1,5 +1,6 @@
 // Components
 import ThemeButton from './ThemeButton';
+import NavLinks from '@components/NavLinks';
 // Utils
 import useIntersectionObserver from '@utils/useIntersectionObserver';
 
@@ -15,7 +16,7 @@ const Header = () => {
       <header
         className={`sticky top-0 z-10 transition-colors duration-300 ${
           !isIntersecting
-            ? 'bg-gray-900/80 before:backdrop-blur-sm before:absolute before:inset-0 before:-z-10'
+            ? 'bg-gray-900/80 before:backdrop-blur-sm before:absolute before:inset-0 before:-z-10 text-gray-100'
             : ''
         }`}
       >
@@ -34,12 +35,7 @@ const Header = () => {
             <ThemeButton />
           </section>
 
-          <nav>
-            <ul className="flex gap-1 items-center">
-              <li>hey</li>
-              <li>there</li>
-            </ul>
-          </nav>
+          <NavLinks />
         </div>
       </header>
     </>

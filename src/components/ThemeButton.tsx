@@ -73,7 +73,7 @@ export default function ThemeButton() {
         onClick={() => {
           setOpen(!open);
         }}
-        className="rounded hover:bg-gray-100 bg-gray-200 dark:bg-gray-700 transition-colors px-2 py-1 flex gap-2 justify-between items-center"
+        className="rounded hover:bg-gray-100 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-200 transition-colors px-2 py-1 flex gap-2 justify-between items-center"
       >
         Theme
         {themeOptions.find((element) => element.value === theme)?.icon}
@@ -88,7 +88,7 @@ export default function ThemeButton() {
           return (
             <li key={index}>
               <button
-                className={`px-2 py-1 w-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors rounded text-left flex gap-2 justify-between items-center ${
+                className={`px-2 py-1 w-full text-gray-900 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors rounded text-left flex gap-2 justify-between items-center ${
                   themeOption.value === theme
                     ? 'bg-gray-300 hover:bg-gray-300 pointer-events-none dark:bg-gray-900 dark:hover:bg-gray-900'
                     : ''
