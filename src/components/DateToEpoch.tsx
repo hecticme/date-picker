@@ -1,6 +1,8 @@
 import { useState } from 'react';
 // Utilities
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+dayjs.extend(utc);
 // Components
 import ConvertedResult from '@components/ConvertedResult';
 import { ShortDivider } from '@components/common/Divider';
@@ -19,10 +21,13 @@ const DateToEpoch = () => {
     second: 0,
   });
 
+  const [timezone, setTimezone] = useState('utc');
+
   const chosenDate = dayjs(date)
     .hour(timestamp.hour)
     .minute(timestamp.minute)
-    .second(timestamp.second);
+    .second(timestamp.second)
+    .utc(timezone === 'utc' || false);
 
   return (
     <section className="flex flex-col gap-2">
@@ -42,6 +47,19 @@ const DateToEpoch = () => {
             setDate(e.target.value);
           }}
         />
+
+        <select
+          name="timezone"
+          id="timezone"
+          value={timezone}
+          onChange={(e) => {
+            setTimezone(e.target.value);
+          }}
+          className="px-2 cursor-pointer py-1 bg-gray-200 rounded dark:bg-gray-700"
+        >
+          <option value="utc">UTC</option>
+          <option value="local">Local</option>
+        </select>
       </div>
 
       <section className="flex flex-col gap-2">
@@ -55,7 +73,7 @@ const DateToEpoch = () => {
 
         <ShortDivider />
 
-        <ConvertedResult date={chosenDate} />
+        <ConvertedResult chosenDate={chosenDate} />
       </section>
     </section>
   );

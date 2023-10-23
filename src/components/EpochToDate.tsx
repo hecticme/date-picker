@@ -31,7 +31,7 @@ export default function EpochToDate() {
 
       <ShortDivider />
 
-      <ConvertedResult date={date} />
+      <ConvertedResult chosenDate={date} />
     </section>
   );
 }

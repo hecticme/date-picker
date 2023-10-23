@@ -1,14 +1,30 @@
 import dayjs from 'dayjs';
 import ClipboardBtn from '@components/common/ClipboardBtn';
 
-const ConvertedResult = ({ date }: { date: dayjs.Dayjs }) => {
-  const humanDate = date.format('DD/MM/YYYY HH:mm:ss');
-  const unix = date.unix();
-  const unixMilli = date.valueOf();
+const ConvertedResult = ({ chosenDate }: { chosenDate: dayjs.Dayjs }) => {
+  const date = chosenDate.local();
+
+  const [humanDate, unix, unixMilli] = [
+    date.format('dddd, MMMM DD, YYYY HH:mm:ss [GMT]Z'),
+    date.unix(),
+    date.valueOf(),
+  ];
+
+  const utcHumanDate = date.utc().format('dddd, MMMM DD, YYYY HH:mm:ss');
 
   return (
     <section className="flex flex-col gap-2">
-      <h3 className="font-bold">Human-readable time:</h3>
+      <h3 className="font-bold text-sm md:text-base">Human-readable format:</h3>
+
+      <h4 className="text-sm md:text-base">UTC:</h4>
+
+      <div className="flex justify-between gap-2 px-2 py-1 outline outline-1 outline-gray-400 rounded">
+        <p>{utcHumanDate}</p>
+
+        <ClipboardBtn content={utcHumanDate} />
+      </div>
+
+      <h4 className="text-sm md:text-base">Your local time:</h4>
 
       <div className="flex justify-between gap-2 px-2 py-1 outline outline-1 outline-gray-400 rounded">
         <p>{humanDate}</p>
@@ -16,13 +32,13 @@ const ConvertedResult = ({ date }: { date: dayjs.Dayjs }) => {
         <ClipboardBtn content={humanDate} />
       </div>
 
-      <h3 className="font-bold">Epoch time: </h3>
+      <h3 className="font-bold text-sm md:text-base">Epoch time: </h3>
 
       <div className="flex flex-col gap-1 px-2 py-1 outline outline-1 outline-gray-400 rounded">
         <div className="flex justify-between gap-2 items-center">
           <p>
             {unix}{' '}
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
               (seconds)
             </span>
           </p>
@@ -33,7 +49,7 @@ const ConvertedResult = ({ date }: { date: dayjs.Dayjs }) => {
         <div className="flex justify-between gap-2 items-center">
           <p>
             {unixMilli}{' '}
-            <span className="text-sm text-gray- dark:text-gray-400">
+            <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
               (milliseconds)
             </span>
           </p>
