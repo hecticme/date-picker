@@ -24,7 +24,7 @@ export default function useIntersectionObserver(
     return () => {
       observer.disconnect();
     };
-  }, [ref]);
+  }, [ref, options]);
 
   return { ref, isIntersecting };
 }
