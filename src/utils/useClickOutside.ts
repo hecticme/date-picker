@@ -1,12 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
 
 export default function useClickOutside() {
-  const ref = useRef<Node | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const ref = useRef<any>(null);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
+      if (ref.current && !ref.current.contains(e.target)) {
         setOpen(false);
       }
     }
