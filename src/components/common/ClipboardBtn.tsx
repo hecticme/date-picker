@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ClipboardIcon } from '@heroicons/react/24/outline';
 
 type ClipboardBtnProps = {
-  content: Object;
+  content: NonNullable<unknown>;
 };
 
 export default function ClipboardBtn({ content }: ClipboardBtnProps) {

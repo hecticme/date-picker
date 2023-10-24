@@ -1,16 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
 
-type ObserverType = {
-  root: Element | null;
-  rootMargin: string;
-  thresholds: number[] | number;
-};
-
 export default function useIntersectionObserver(
-  options?: Partial<ObserverType>,
+  options?: IntersectionObserverInit,
 ) {
   const ref = useRef(null);
-  const [isIntersecting, setIsIntersecting] = useState(false);
+  const [isIntersecting, setIsIntersecting] = useState<null | boolean>(null);
+  // State will be null onload, so that the UI doesn't flash if the node has not intersected yet.
+  // For this you have to check whatever logic you use with === false, not Boolean(value).
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -24,7 +20,7 @@ export default function useIntersectionObserver(
     return () => {
       observer.disconnect();
     };
-  }, [ref]);
+  }, [ref, options]);
 
   return { ref, isIntersecting };
 }

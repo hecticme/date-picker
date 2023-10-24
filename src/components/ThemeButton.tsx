@@ -1,4 +1,3 @@
-import { useState, useRef } from 'react';
 // Redux
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { changeTheme } from '@store/themeSlice';
@@ -32,13 +31,7 @@ const themeOptions = [
 ];
 
 export default function ThemeButton() {
-  const [open, setOpen] = useState(false);
-
-  const btnRef = useRef(null);
-
-  useClickOutside(btnRef, () => {
-    setOpen(false);
-  });
+  const { ref, open, setOpen } = useClickOutside();
 
   const theme = useAppSelector((state) => state.theme);
   const dispatch = useAppDispatch();
@@ -68,7 +61,7 @@ export default function ThemeButton() {
   };
 
   return (
-    <div className="relative" ref={btnRef}>
+    <div className="relative" ref={ref}>
       <button
         onClick={() => {
           setOpen(!open);

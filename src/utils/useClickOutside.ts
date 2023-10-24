@@ -1,13 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
-export default function useClickOutside(
-  ref: React.MutableRefObject<any>,
-  clickOutFunc: () => any,
-) {
+export default function useClickOutside() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const ref = useRef<any>(null);
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target)) {
-        clickOutFunc();
+        setOpen(false);
       }
     }
 
@@ -17,4 +18,6 @@ export default function useClickOutside(
       document.removeEventListener('mousedown', handleClickOutside);
     };
   });
+
+  return { ref, open, setOpen };
 }

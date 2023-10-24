@@ -1,6 +1,8 @@
 import { useState } from 'react';
 // Utilities
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+dayjs.extend(utc);
 // Components
 import ConvertedResult from '@components/ConvertedResult';
 import { ShortDivider } from '@components/common/Divider';
@@ -19,17 +21,22 @@ const DateToEpoch = () => {
     second: 0,
   });
 
+  const [timezone, setTimezone] = useState('utc');
+
   const chosenDate = dayjs(date)
     .hour(timestamp.hour)
     .minute(timestamp.minute)
-    .second(timestamp.second);
+    .second(timestamp.second)
+    .utc(timezone === 'utc' || false);
 
   return (
     <section className="flex flex-col gap-2">
-      <h2 className="font-bold text-xl">Human-readable format to Epoch</h2>
+      <h2 className="font-bold text-lg lg:text-xl">
+        Human-readable format to Epoch
+      </h2>
 
       <div className="flex gap-3 items-center">
-        <label htmlFor="date" className="text-lg">
+        <label htmlFor="date" className="text-base md:text-lg">
           Date:
         </label>
 
@@ -42,20 +49,35 @@ const DateToEpoch = () => {
             setDate(e.target.value);
           }}
         />
+
+        <select
+          name="timezone"
+          id="timezone"
+          value={timezone}
+          onChange={(e) => {
+            setTimezone(e.target.value);
+          }}
+          className="px-2 cursor-pointer py-1 bg-gray-200 rounded dark:bg-gray-700"
+        >
+          <option value="utc">UTC</option>
+          <option value="local">Local</option>
+        </select>
       </div>
 
       <section className="flex flex-col gap-2">
-        <h3 className="text-lg">Timestamp:</h3>
+        <h3 className="text-base md:text-lg">Timestamp:</h3>
 
         <TimestampButtons setTimestamp={setTimestamp} />
 
-        <p className="text-gray-500 dark:text-gray-400">Or more specific:</p>
+        <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">
+          Or more specific:
+        </p>
 
         <SpecificTimestamp timestamp={timestamp} setTimestamp={setTimestamp} />
 
         <ShortDivider />
 
-        <ConvertedResult date={chosenDate} />
+        <ConvertedResult chosenDate={chosenDate} />
       </section>
     </section>
   );
@@ -101,7 +123,7 @@ const TimestampButtons = ({ setTimestamp }: TimestampButtonsProps) => {
       {timestampButtonsList.map((element, index) => (
         <button
           key={index}
-          className="px-3 py-2 rounded bg-gray-900 text-gray-100 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors font-bold flex-grow"
+          className="px-3 py-2 rounded bg-gray-900 text-gray-100 hover:bg-gray-700 dark:bg-gray-700 text-sm lg:text-base dark:hover:bg-gray-600 transition-colors font-bold flex-grow"
           onClick={() => {
             setTimestamp(element.timestamp);
           }}
@@ -144,7 +166,7 @@ const SpecificTimestamp = ({
   };
 
   return (
-    <div className="flex gap-2 gap-y-2 gap-x-4 items-center mt-2">
+    <div className="flex gap-2 gap-y-2 gap-x-4 items-center mt-3">
       {[
         { id: 'hour', min: 0, max: 23, value: timestamp.hour },
         { id: 'minute', min: 0, max: 59, value: timestamp.minute },

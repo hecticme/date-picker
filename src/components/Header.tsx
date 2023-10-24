@@ -15,18 +15,17 @@ const Header = () => {
       <div ref={ref}></div>
       <header
         className={`sticky top-0 z-10 transition-colors duration-300 ${
-          !isIntersecting
-            ? 'bg-gray-900/80 before:backdrop-blur-sm before:absolute before:inset-0 before:-z-10 text-gray-100'
-            : ''
+          isIntersecting === false &&
+          'bg-gray-900/80 before:backdrop-blur-sm before:absolute before:inset-0 before:-z-10 text-gray-100'
         }`}
       >
         <div
           className={`flex justify-between py-2 items-center max-w-[90rem] md:px-4 px-2 mx-auto`}
         >
-          <section className="flex gap-5 items-center">
+          <section className="flex gap-2 items-center">
             <h1
               className={`font-bold text-2xl ${
-                !isIntersecting ? 'text-gray-100' : ''
+                isIntersecting === false && 'text-gray-100'
               }`}
             >
               Epoch Date Picker
