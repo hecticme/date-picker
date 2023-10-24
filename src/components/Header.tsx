@@ -15,9 +15,8 @@ const Header = () => {
       <div ref={ref}></div>
       <header
         className={`sticky top-0 z-10 transition-colors duration-300 ${
-          !isIntersecting
-            ? 'bg-gray-900/80 before:backdrop-blur-sm before:absolute before:inset-0 before:-z-10 text-gray-100'
-            : ''
+          isIntersecting === false &&
+          'bg-gray-900/80 before:backdrop-blur-sm before:absolute before:inset-0 before:-z-10 text-gray-100'
         }`}
       >
         <div
@@ -26,7 +25,7 @@ const Header = () => {
           <section className="flex gap-5 items-center">
             <h1
               className={`font-bold text-2xl ${
-                !isIntersecting ? 'text-gray-100' : ''
+                isIntersecting === false && 'text-gray-100'
               }`}
             >
               Epoch Date Picker
