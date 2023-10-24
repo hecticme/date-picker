@@ -32,7 +32,7 @@ const ConvertedResult = ({ chosenDate }: { chosenDate: dayjs.Dayjs }) => {
         <ClipboardBtn content={humanDate} />
       </div>
 
-      <h3 className="font-bold text-sm md:text-base">Epoch time: </h3>
+      <h3 className="font-bold text-sm md:text-base">Epoch: </h3>
 
       <div className="flex flex-col gap-1 px-2 py-1 outline outline-1 outline-gray-400 rounded">
         <div className="flex justify-between gap-2 items-center">
