@@ -31,10 +31,12 @@ const DateToEpoch = () => {
 
   return (
     <section className="flex flex-col gap-2">
-      <h2 className="font-bold text-xl">Human-readable format to Epoch</h2>
+      <h2 className="font-bold text-lg lg:text-xl">
+        Human-readable format to Epoch
+      </h2>
 
       <div className="flex gap-3 items-center">
-        <label htmlFor="date" className="text-lg">
+        <label htmlFor="date" className="text-base md:text-lg">
           Date:
         </label>
 
@@ -63,11 +65,13 @@ const DateToEpoch = () => {
       </div>
 
       <section className="flex flex-col gap-2">
-        <h3 className="text-lg">Timestamp:</h3>
+        <h3 className="text-base md:text-lg">Timestamp:</h3>
 
         <TimestampButtons setTimestamp={setTimestamp} />
 
-        <p className="text-gray-500 dark:text-gray-400">Or more specific:</p>
+        <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">
+          Or more specific:
+        </p>
 
         <SpecificTimestamp timestamp={timestamp} setTimestamp={setTimestamp} />
 
@@ -119,7 +123,7 @@ const TimestampButtons = ({ setTimestamp }: TimestampButtonsProps) => {
       {timestampButtonsList.map((element, index) => (
         <button
           key={index}
-          className="px-3 py-2 rounded bg-gray-900 text-gray-100 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors font-bold flex-grow"
+          className="px-3 py-2 rounded bg-gray-900 text-gray-100 hover:bg-gray-700 dark:bg-gray-700 text-sm lg:text-base dark:hover:bg-gray-600 transition-colors font-bold flex-grow"
           onClick={() => {
             setTimestamp(element.timestamp);
           }}
@@ -162,7 +166,7 @@ const SpecificTimestamp = ({
   };
 
   return (
-    <div className="flex gap-2 gap-y-2 gap-x-4 items-center mt-2">
+    <div className="flex gap-2 gap-y-2 gap-x-4 items-center mt-3">
       {[
         { id: 'hour', min: 0, max: 23, value: timestamp.hour },
         { id: 'minute', min: 0, max: 59, value: timestamp.minute },

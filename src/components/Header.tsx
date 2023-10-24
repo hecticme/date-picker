@@ -22,7 +22,7 @@ const Header = () => {
         <div
           className={`flex justify-between py-2 items-center max-w-[90rem] md:px-4 px-2 mx-auto`}
         >
-          <section className="flex gap-5 items-center">
+          <section className="flex gap-2 items-center">
             <h1
               className={`font-bold text-2xl ${
                 isIntersecting === false && 'text-gray-100'
