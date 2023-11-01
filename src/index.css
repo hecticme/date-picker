@@ -20,3 +20,7 @@ body.dark input[type='date']::-webkit-calendar-picker-indicator {
 body.dark input[type='date']::-webkit-calendar-picker-indicator:hover {
   background-color: #2c2c2c;
 }
+
+input {
+  @apply font-mono;
+}
