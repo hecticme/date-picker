@@ -47,7 +47,9 @@ const TimestampButtons = ({ setTimestamp }: TimestampButtonsProps) => {
           }}
         >
           {element.label}
-          <div className="font-normal">({element.timestampLabel})</div>
+          <div className="font-normal text-xs lg:text-sm xl:text-base font-mono">
+            ({element.timestampLabel})
+          </div>
         </button>
       ))}
     </section>
