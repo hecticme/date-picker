@@ -18,7 +18,7 @@ const ConvertedResult = ({ chosenDate }: { chosenDate: dayjs.Dayjs }) => {
 
       <h4 className="text-sm md:text-base">UTC:</h4>
 
-      <div className="flex justify-between items-center gap-2 px-2 py-1 outline outline-1 outline-gray-400 rounded font-mono">
+      <div className="flex justify-between items-center gap-2 px-2 py-1 outline outline-2 outline-gray-900 font-mono">
         <p>{utcHumanDate}</p>
 
         <ClipboardBtn content={utcHumanDate} />
@@ -26,7 +26,7 @@ const ConvertedResult = ({ chosenDate }: { chosenDate: dayjs.Dayjs }) => {
 
       <h4 className="text-sm md:text-base">Your local time:</h4>
 
-      <div className="flex justify-between items-center gap-2 px-2 py-1 outline outline-1 outline-gray-400 rounded font-mono">
+      <div className="flex justify-between items-center gap-2 px-2 py-1 outline outline-2 outline-gray-900 font-mono">
         <p>{humanDate}</p>
 
         <ClipboardBtn content={humanDate} />
@@ -34,7 +34,7 @@ const ConvertedResult = ({ chosenDate }: { chosenDate: dayjs.Dayjs }) => {
 
       <h3 className="font-bold text-sm md:text-base">Epoch: </h3>
 
-      <div className="flex flex-col gap-1 px-2 py-1 outline outline-1 outline-gray-400 rounded">
+      <div className="flex flex-col gap-1 px-2 py-1 outline outline-2 outline-gray-900">
         <div className="flex justify-between gap-2 items-center">
           <p className="font-mono">
             {unix}{' '}
