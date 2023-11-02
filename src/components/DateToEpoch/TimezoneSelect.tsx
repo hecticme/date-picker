@@ -1,5 +1,7 @@
 // Utils
 import useClickOutside from '@src/utils/useClickOutside';
+// Icons
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
 const timezoneOptions = [
   { value: 'utc', label: 'UTC' },
@@ -26,12 +28,18 @@ export default function TimezoneSelect({
   return (
     <div ref={ref} className="relative bg-gray-900 text-gray-100">
       <button
-        className="px-2 cursor-pointer py-1 transition-colors w-14 overflow-hidden text-ellipsis hover:bg-gray-700 dark:hover:bg-gray-600 dark:bg-gray-700"
+        className="px-2 cursor-pointer py-1 transition-colors w-[4.4rem] hover:bg-gray-700 dark:hover:bg-gray-600 dark:bg-gray-700 flex gap-1 items-center justify-between"
         onClick={() => {
           setOpen(!open);
         }}
       >
-        {timezoneOptions.find((option) => option.value === timezone)?.label}
+        <span className="overflow-hidden text-ellipsis">
+          {timezoneOptions.find((option) => option.value === timezone)?.label}
+        </span>
+
+        <span>
+          <ChevronDownIcon className={`w-3 h-3 ${open ? 'rotate-180' : ''}`} />
+        </span>
       </button>
 
       <ul
@@ -61,17 +69,4 @@ export default function TimezoneSelect({
       </ul>
     </div>
   );
-
-  <select
-    name="timezone"
-    id="timezone"
-    value={timezone}
-    onChange={(e) => {
-      setTimezone(e.target.value);
-    }}
-    className="px-2 cursor-pointer py-1 transition-colors bg-gray-900 text-gray-100 hover:bg-gray-700 dark:hover:bg-gray-600 dark:bg-gray-700"
-  >
-    <option value="utc">UTC</option>
-    <option value="local">Local</option>
-  </select>;
 }
