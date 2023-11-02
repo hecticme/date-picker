@@ -15,7 +15,7 @@ export default function DateSelect({
   setTimezone,
 }: DateSelectProps) {
   return (
-    <div className="flex gap-3 items-center">
+    <div className="flex items-center gap-3">
       <label htmlFor="date" className="text-base md:text-lg">
         Date:
       </label>
@@ -23,7 +23,7 @@ export default function DateSelect({
       <input
         type="date"
         id="date"
-        className="px-2 py-1 outline outline-2 outline-gray-900 flex-grow dark:bg-gray-500 dark:outline-gray-200"
+        className="flex-grow px-2 py-1 outline outline-2 outline-gray-900 dark:bg-gray-500 dark:outline-gray-200"
         value={date}
         onChange={(e) => {
           setDate(e.target.value);

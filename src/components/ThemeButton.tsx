@@ -66,7 +66,7 @@ export default function ThemeButton() {
         onClick={() => {
           setOpen(!open);
         }}
-        className="rounded hover:bg-gray-100 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-200 transition-colors px-2 py-1 flex gap-2 justify-between items-center"
+        className="flex items-center justify-between gap-2 rounded bg-gray-200 px-2 py-1 text-gray-900 transition-colors hover:bg-gray-100 dark:bg-gray-700 dark:text-gray-200"
       >
         Theme
         {themeOptions.find((element) => element.value === theme)?.icon}
@@ -76,15 +76,15 @@ export default function ThemeButton() {
         aria-hidden={open ? 'false' : 'true'}
         className={`${
           open ? 'block' : 'hidden'
-        } absolute top-[115%] flex flex-col gap-1 p-1 bg-gray-100 dark:bg-gray-700 rounded shadow-lg`}
+        } absolute top-[115%] flex flex-col gap-1 rounded bg-gray-100 p-1 shadow-lg dark:bg-gray-700`}
       >
         {themeOptions.map((themeOption, index) => {
           return (
             <li key={index}>
               <button
-                className={`px-2 py-1 w-full text-gray-900 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors rounded text-left flex gap-2 justify-between items-center ${
+                className={`flex w-full items-center justify-between gap-2 rounded px-2 py-1 text-left text-gray-900 transition-colors hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-800 ${
                   themeOption.value === theme
-                    ? 'bg-gray-300 hover:bg-gray-300 pointer-events-none dark:bg-gray-900 dark:hover:bg-gray-900'
+                    ? 'pointer-events-none bg-gray-300 hover:bg-gray-300 dark:bg-gray-900 dark:hover:bg-gray-900'
                     : ''
                 }`}
                 value={themeOption.value}

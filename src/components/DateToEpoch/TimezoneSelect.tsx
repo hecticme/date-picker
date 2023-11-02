@@ -28,7 +28,7 @@ export default function TimezoneSelect({
   return (
     <div ref={ref} className="relative bg-gray-900 text-gray-100">
       <button
-        className="px-2 cursor-pointer py-1 transition-colors w-[4.4rem] hover:bg-gray-700 dark:hover:bg-gray-600 dark:bg-gray-700 flex gap-1 items-center justify-between"
+        className="flex w-[4.4rem] cursor-pointer items-center justify-between gap-1 px-2 py-1 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
         onClick={() => {
           setOpen(!open);
         }}
@@ -38,13 +38,13 @@ export default function TimezoneSelect({
         </span>
 
         <span>
-          <ChevronDownIcon className={`w-3 h-3 ${open ? 'rotate-180' : ''}`} />
+          <ChevronDownIcon className={`h-3 w-3 ${open ? 'rotate-180' : ''}`} />
         </span>
       </button>
 
       <ul
         aria-hidden={open ? 'false' : 'true'}
-        className={`absolute bg-gray-900 dark:bg-gray-700 px-1 py-2 top-[110%] ${
+        className={`absolute top-[110%] bg-gray-900 px-1 py-2 dark:bg-gray-700 ${
           open ? 'flex flex-col gap-2' : 'hidden'
         }`}
       >
@@ -56,7 +56,7 @@ export default function TimezoneSelect({
               <button
                 value={option.value}
                 onClick={handleChangeTimezone}
-                className={`px-2 py-1 text-left transition-colors hover:bg-gray-700 dark:hover:bg-gray-500 w-full ${
+                className={`w-full px-2 py-1 text-left transition-colors hover:bg-gray-700 dark:hover:bg-gray-500 ${
                   isActive ? 'bg-gray-700 dark:bg-gray-500' : ''
                 }`}
                 disabled={isActive}

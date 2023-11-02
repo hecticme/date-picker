@@ -28,10 +28,10 @@ export const InstancesAmountSelect = ({
   };
 
   return (
-    <div className="flex gap-3 mb-8 items-center">
+    <div className="mb-8 flex items-center gap-3">
       <label
         htmlFor="date-picker-instances-amount"
-        className="font-bold text-xl"
+        className="text-xl font-bold"
       >
         Converters amount
       </label>
@@ -42,7 +42,7 @@ export const InstancesAmountSelect = ({
         className="relative bg-gray-900 text-gray-100"
       >
         <button
-          className="px-2 cursor-pointer py-1 transition-colors w-12 hover:bg-gray-700 dark:hover:bg-gray-600 dark:bg-gray-700 flex gap-1 items-center justify-between"
+          className="flex w-12 cursor-pointer items-center justify-between gap-1 px-2 py-1 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
           onClick={() => {
             setOpen(!open);
           }}
@@ -53,14 +53,14 @@ export const InstancesAmountSelect = ({
 
           <span>
             <ChevronDownIcon
-              className={`w-3 h-3 ${open ? 'rotate-180' : ''}`}
+              className={`h-3 w-3 ${open ? 'rotate-180' : ''}`}
             />
           </span>
         </button>
 
         <ul
           aria-hidden={open ? 'false' : 'true'}
-          className={`absolute bg-gray-900 dark:bg-gray-700 px-1 py-2 top-[110%] ${
+          className={`absolute top-[110%] bg-gray-900 px-1 py-2 dark:bg-gray-700 ${
             open ? 'flex flex-col gap-2' : 'hidden'
           }`}
         >
@@ -72,7 +72,7 @@ export const InstancesAmountSelect = ({
                 <button
                   value={option.value}
                   onClick={handleChangeInstAmount}
-                  className={`px-2 py-1 text-left transition-colors min-w-[2rem] hover:bg-gray-700 dark:hover:bg-gray-500 w-full ${
+                  className={`w-full min-w-[2rem] px-2 py-1 text-left transition-colors hover:bg-gray-700 dark:hover:bg-gray-500 ${
                     isActive ? 'bg-gray-700 dark:bg-gray-500' : ''
                   }`}
                   disabled={isActive}

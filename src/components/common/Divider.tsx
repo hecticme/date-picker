@@ -1,3 +1,3 @@
 export function ShortDivider() {
-  return <div className="h-1 bg-gray-300 my-2 rounded mx-auto w-[40%]"></div>;
+  return <div className="mx-auto my-2 h-1 w-[40%] rounded bg-gray-300"></div>;
 }

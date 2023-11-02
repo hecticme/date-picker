@@ -14,11 +14,11 @@ const ConvertedResult = ({ chosenDate }: { chosenDate: dayjs.Dayjs }) => {
 
   return (
     <section className="flex flex-col gap-2">
-      <h3 className="font-bold text-sm md:text-base">Human-readable format:</h3>
+      <h3 className="text-sm font-bold md:text-base">Human-readable format:</h3>
 
       <h4 className="text-sm md:text-base">UTC:</h4>
 
-      <div className="flex justify-between items-center gap-2 px-2 py-1 outline outline-2 outline-gray-900 dark:outline-gray-200 font-mono">
+      <div className="flex items-center justify-between gap-2 px-2 py-1 font-mono outline outline-2 outline-gray-900 dark:outline-gray-200">
         <p>{utcHumanDate}</p>
 
         <ClipboardBtn content={utcHumanDate} />
@@ -26,19 +26,19 @@ const ConvertedResult = ({ chosenDate }: { chosenDate: dayjs.Dayjs }) => {
 
       <h4 className="text-sm md:text-base">Your local time:</h4>
 
-      <div className="flex justify-between items-center gap-2 px-2 py-1 outline outline-2 outline-gray-900 dark:outline-gray-200 font-mono">
+      <div className="flex items-center justify-between gap-2 px-2 py-1 font-mono outline outline-2 outline-gray-900 dark:outline-gray-200">
         <p>{humanDate}</p>
 
         <ClipboardBtn content={humanDate} />
       </div>
 
-      <h3 className="font-bold text-sm md:text-base">Epoch: </h3>
+      <h3 className="text-sm font-bold md:text-base">Epoch: </h3>
 
       <div className="flex flex-col gap-1 px-2 py-1 outline outline-2 outline-gray-900 dark:outline-gray-200">
-        <div className="flex justify-between gap-2 items-center">
+        <div className="flex items-center justify-between gap-2">
           <p className="font-mono">
             {unix}{' '}
-            <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
+            <span className="text-xs text-gray-500 dark:text-gray-400 md:text-sm">
               (seconds)
             </span>
           </p>
@@ -46,10 +46,10 @@ const ConvertedResult = ({ chosenDate }: { chosenDate: dayjs.Dayjs }) => {
           <ClipboardBtn content={unix} />
         </div>
 
-        <div className="flex justify-between gap-2 items-center">
+        <div className="flex items-center justify-between gap-2">
           <p className="font-mono">
             {unixMilli}{' '}
-            <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
+            <span className="text-xs text-gray-500 dark:text-gray-400 md:text-sm">
               (milliseconds)
             </span>
           </p>

@@ -41,13 +41,13 @@ const TimestampButtons = ({ setTimestamp }: TimestampButtonsProps) => {
       {timestampButtonsList.map((element, index) => (
         <button
           key={index}
-          className="px-3 py-2 hover:bg-gray-900 hover:text-gray-100 dark:outline-gray-200 text-sm lg:text-base dark:hover:bg-gray-700 transition-colors font-bold flex-grow outline outline-2 outline-gray-900"
+          className="flex-grow px-3 py-2 text-sm font-bold outline outline-2 outline-gray-900 transition-colors hover:bg-gray-900 hover:text-gray-100 dark:outline-gray-200 dark:hover:bg-gray-700 lg:text-base"
           onClick={() => {
             setTimestamp(element.timestamp);
           }}
         >
           {element.label}
-          <div className="font-normal text-xs lg:text-sm xl:text-base font-mono">
+          <div className="font-mono text-xs font-normal lg:text-sm xl:text-base">
             ({element.timestampLabel})
           </div>
         </button>

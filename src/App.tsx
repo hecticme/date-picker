@@ -11,13 +11,13 @@ function App() {
     <>
       <Header />
 
-      <main className="pt-12 max-w-[90rem] md:px-4 px-2 mx-auto">
+      <main className="mx-auto max-w-[90rem] px-2 pt-12 md:px-4">
         <InstancesAmountSelect
           amount={instancesAmount}
           setAmount={setInstancesAmount}
         />
 
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-center">
+        <section className="grid grid-cols-1 justify-center gap-10 md:grid-cols-2">
           {[...Array(instancesAmount).keys()].map((instance) => (
             <DatePicker key={instance} />
           ))}

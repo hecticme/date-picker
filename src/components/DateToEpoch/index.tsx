@@ -30,7 +30,7 @@ const DateToEpoch = () => {
 
   return (
     <section className="flex flex-col gap-2">
-      <h2 className="font-bold text-lg lg:text-xl">
+      <h2 className="text-lg font-bold lg:text-xl">
         Human-readable format to Epoch
       </h2>
 
@@ -46,7 +46,7 @@ const DateToEpoch = () => {
 
         <TimestampButtons setTimestamp={setTimestamp} />
 
-        <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">
+        <p className="text-sm text-gray-500 dark:text-gray-400 md:text-base">
           Or more specific:
         </p>
 

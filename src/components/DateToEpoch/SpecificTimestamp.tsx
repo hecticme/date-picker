@@ -31,7 +31,7 @@ const SpecificTimestamp = ({
   };
 
   return (
-    <div className="flex gap-2 gap-y-2 gap-x-4 items-center mt-3">
+    <div className="mt-3 flex items-center gap-2 gap-x-4 gap-y-2">
       {[
         { id: 'hour', min: 0, max: 23, value: timestamp.hour },
         { id: 'minute', min: 0, max: 59, value: timestamp.minute },
@@ -42,12 +42,12 @@ const SpecificTimestamp = ({
 
         return (
           <div
-            className="flex gap-2 flex-grow items-center relative"
+            className="relative flex flex-grow items-center gap-2"
             key={element.id}
           >
             <label
               htmlFor={element.id}
-              className="absolute bg-gray-900 text-gray-100 dark:bg-gray-700 px-2 text-sm -top-[50%] -left-1 capitalize"
+              className="absolute -left-1 -top-[50%] bg-gray-900 px-2 text-sm capitalize text-gray-100 dark:bg-gray-700"
             >
               {element.id}:
             </label>
@@ -59,9 +59,9 @@ const SpecificTimestamp = ({
               value={element.value ?? ''}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`flex-grow outline outline-2 outline-gray-900 dark:bg-gray-500 dark:outline-gray-200 px-2 py-1 ${
+              className={`flex-grow px-2 py-1 outline outline-2 outline-gray-900 dark:bg-gray-500 dark:outline-gray-200 ${
                 isInvalidValue
-                  ? 'outline-red-500 outline-2 dark:outline-red-500'
+                  ? 'outline-2 outline-red-500 dark:outline-red-500'
                   : ''
               }`}
             />

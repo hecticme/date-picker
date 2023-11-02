@@ -16,15 +16,15 @@ const Header = () => {
       <header
         className={`sticky top-0 z-10 transition-colors duration-300 ${
           isIntersecting === false &&
-          'bg-gray-900/80 before:backdrop-blur-sm before:absolute before:inset-0 before:-z-10 text-gray-100'
+          'bg-gray-900/80 text-gray-100 before:absolute before:inset-0 before:-z-10 before:backdrop-blur-sm'
         }`}
       >
         <div
-          className={`flex justify-between py-2 items-center max-w-[90rem] md:px-4 px-2 mx-auto`}
+          className={`mx-auto flex max-w-[90rem] items-center justify-between px-2 py-2 md:px-4`}
         >
-          <section className="flex gap-2 items-center">
+          <section className="flex items-center gap-2">
             <h1
-              className={`font-bold text-2xl ${
+              className={`text-2xl font-bold ${
                 isIntersecting === false && 'text-gray-100'
               }`}
             >
