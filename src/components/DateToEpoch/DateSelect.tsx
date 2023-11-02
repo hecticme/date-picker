@@ -20,7 +20,7 @@ export default function DateSelect({
       <input
         type="date"
         id="date"
-        className="px-2 py-1 outline outline-1 outline-gray-900 rounded flex-grow dark:bg-gray-500 dark:outline-gray-200"
+        className="px-2 py-1 outline outline-2 outline-gray-900 flex-grow dark:bg-gray-500 dark:outline-gray-200"
         value={date}
         onChange={(e) => {
           setDate(e.target.value);
@@ -34,7 +34,7 @@ export default function DateSelect({
         onChange={(e) => {
           setTimezone(e.target.value);
         }}
-        className="px-2 cursor-pointer py-1 bg-gray-200 rounded dark:bg-gray-700"
+        className="px-2 cursor-pointer py-1 transition-colors bg-gray-900 text-gray-100 hover:bg-gray-700 dark:hover:bg-gray-500 dark:bg-gray-700"
       >
         <option value="utc">UTC</option>
         <option value="local">Local</option>

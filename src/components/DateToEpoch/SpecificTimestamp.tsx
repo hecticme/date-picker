@@ -47,7 +47,7 @@ const SpecificTimestamp = ({
           >
             <label
               htmlFor={element.id}
-              className="absolute bg-gray-900 text-gray-100 dark:bg-gray-700 rounded-full px-2 text-sm -top-[50%] -left-1 capitalize"
+              className="absolute bg-gray-900 text-gray-100 dark:bg-gray-700 px-2 text-sm -top-[50%] -left-1 capitalize"
             >
               {element.id}:
             </label>
@@ -59,7 +59,7 @@ const SpecificTimestamp = ({
               value={element.value ?? ''}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`flex-grow outline outline-1 outline-gray-900 dark:bg-gray-500 dark:outline-gray-200 rounded px-2 py-1 ${
+              className={`flex-grow outline outline-2 outline-gray-900 dark:bg-gray-500 dark:outline-gray-200 px-2 py-1 ${
                 isInvalidValue
                   ? 'outline-red-500 outline-2 dark:outline-red-500'
                   : ''
