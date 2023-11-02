@@ -23,7 +23,7 @@ export default function EpochToDate() {
         <input
           id="unix"
           type="number"
-          className="px-2 py-1 outline outline-1 outline-gray-900 rounded w-full dark:bg-gray-500 dark:outline-gray-200"
+          className="px-2 py-1 outline outline-2 outline-gray-900 w-full dark:bg-gray-500 dark:outline-gray-200"
           value={unix}
           onChange={(e) => {
             setUnix(+e.target.value);
