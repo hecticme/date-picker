@@ -1,3 +1,6 @@
+// Components
+import TimezoneSelect from './TimezoneSelect';
+
 type DateSelectProps = {
   date: string;
   setDate: React.Dispatch<React.SetStateAction<string>>;
@@ -27,18 +30,7 @@ export default function DateSelect({
         }}
       />
 
-      <select
-        name="timezone"
-        id="timezone"
-        value={timezone}
-        onChange={(e) => {
-          setTimezone(e.target.value);
-        }}
-        className="px-2 cursor-pointer py-1 transition-colors bg-gray-900 text-gray-100 hover:bg-gray-700 dark:hover:bg-gray-600 dark:bg-gray-700"
-      >
-        <option value="utc">UTC</option>
-        <option value="local">Local</option>
-      </select>
+      <TimezoneSelect timezone={timezone} setTimezone={setTimezone} />
     </div>
   );
 }
