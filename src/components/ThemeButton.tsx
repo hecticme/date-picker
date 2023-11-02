@@ -73,6 +73,7 @@ export default function ThemeButton() {
       </button>
 
       <ul
+        aria-hidden={open ? 'false' : 'true'}
         className={`${
           open ? 'block' : 'hidden'
         } absolute top-[115%] flex flex-col gap-1 p-1 bg-gray-100 dark:bg-gray-700 rounded shadow-lg`}
