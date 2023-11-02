@@ -41,7 +41,7 @@ const TimestampButtons = ({ setTimestamp }: TimestampButtonsProps) => {
       {timestampButtonsList.map((element, index) => (
         <button
           key={index}
-          className="px-3 py-2 hover:bg-gray-900 hover:text-gray-100 dark:bg-gray-700 text-sm lg:text-base dark:hover:bg-gray-600 transition-colors font-bold flex-grow outline outline-2 outline-gray-900"
+          className="px-3 py-2 hover:bg-gray-900 hover:text-gray-100 dark:outline-gray-200 text-sm lg:text-base dark:hover:bg-gray-700 transition-colors font-bold flex-grow outline outline-2 outline-gray-900"
           onClick={() => {
             setTimestamp(element.timestamp);
           }}

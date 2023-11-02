@@ -34,7 +34,7 @@ export default function DateSelect({
         onChange={(e) => {
           setTimezone(e.target.value);
         }}
-        className="px-2 cursor-pointer py-1 transition-colors bg-gray-900 text-gray-100 hover:bg-gray-700 dark:hover:bg-gray-500 dark:bg-gray-700"
+        className="px-2 cursor-pointer py-1 transition-colors bg-gray-900 text-gray-100 hover:bg-gray-700 dark:hover:bg-gray-600 dark:bg-gray-700"
       >
         <option value="utc">UTC</option>
         <option value="local">Local</option>
