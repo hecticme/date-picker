@@ -14,19 +14,19 @@ export default function CommonUtils() {
   return (
     <div ref={ref} className="relative">
       <button
-        className="group flex gap-2 items-center justify-between font-bold px-3 py-1 bg-gray-900 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors text-gray-100"
+        className="group flex items-center justify-between gap-2 bg-gray-900 px-3 py-1 font-bold text-gray-100 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
         onClick={() => {
           setOpen(!open);
         }}
       >
-        <span className="flex gap-1 items-center">
+        <span className="flex items-center gap-1">
           Common utilities
-          <WrenchScrewdriverIcon className="w-5 h-5" />
+          <WrenchScrewdriverIcon className="h-5 w-5" />
         </span>
 
         <span>
           <ChevronDownIcon
-            className={`w-5 h-5 transition-[colors,transform] group-hover:bg-gray-500 bg-gray-700 dark:bg-gray-900 dark:group-hover:bg-gray-800 p-1 rounded-full ${
+            className={`h-5 w-5 rounded-full bg-gray-700 p-1 transition-[colors,transform] group-hover:bg-gray-500 dark:bg-gray-900 dark:group-hover:bg-gray-800 ${
               open ? 'rotate-180' : ''
             }`}
           />
@@ -35,8 +35,8 @@ export default function CommonUtils() {
 
       <div
         aria-hidden={!open}
-        className={`absolute right-0 flex flex-col gap-1 bg-gray-900 dark:bg-gray-700 transition-[opacity,top] text-gray-100 px-2 py-1 ${
-          open ? 'opacity-100 top-[120%]' : 'opacity-0 top-[110%]'
+        className={`absolute right-0 flex flex-col gap-1 bg-gray-900 px-2 py-1 text-gray-100 transition-[opacity,top] dark:bg-gray-700 ${
+          open ? 'top-[120%] opacity-100' : 'top-[110%] opacity-0'
         }`}
       >
         <CurrentTimmeBtn />
