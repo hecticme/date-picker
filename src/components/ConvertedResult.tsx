@@ -37,7 +37,7 @@ const ConvertedResult = ({ chosenDate }: { chosenDate: dayjs.Dayjs }) => {
       <div className="flex flex-col gap-1 px-2 py-1 outline outline-2 outline-gray-900 dark:outline-gray-200">
         <div className="flex justify-between gap-2 items-center">
           <p className="font-mono">
-            {unix}{' '}
+            {unix || "---"}{' '}
             <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
               (seconds)
             </span>
@@ -48,7 +48,7 @@ const ConvertedResult = ({ chosenDate }: { chosenDate: dayjs.Dayjs }) => {
 
         <div className="flex justify-between gap-2 items-center">
           <p className="font-mono">
-            {unixMilli}{' '}
+            {unixMilli || "---"}{' '}
             <span className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
               (milliseconds)
             </span>
