@@ -28,7 +28,7 @@ export const InstancesAmountSelect = ({
   };
 
   return (
-    <div className="mb-8 flex items-center gap-3">
+    <div className="flex items-center gap-3">
       <label
         htmlFor="date-picker-instances-amount"
         className="text-xl font-bold"
