@@ -75,7 +75,9 @@ export default function ThemeButton() {
       <ul
         aria-hidden={!open}
         className={`${
-          open ? 'top-[120%] opacity-100' : 'top-[110%] opacity-0'
+          open
+            ? 'top-[120%] opacity-100'
+            : 'pointer-events-none top-[110%] opacity-0'
         } absolute flex flex-col gap-1 rounded bg-gray-100 p-1 shadow-lg transition-[top,opacity] dark:bg-gray-700`}
       >
         {themeOptions.map((themeOption, index) => {
