@@ -42,7 +42,7 @@ export const InstancesAmountSelect = ({
         className="relative bg-gray-900 text-gray-100"
       >
         <button
-          className="group flex w-12 cursor-pointer items-center justify-between gap-1 px-2 py-1 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
+          className="group flex max-w-[4rem] cursor-pointer items-center justify-between gap-2 px-2 py-1 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
           onClick={() => {
             setOpen(!open);
           }}
