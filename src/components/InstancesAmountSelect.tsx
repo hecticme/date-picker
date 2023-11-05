@@ -42,7 +42,7 @@ export const InstancesAmountSelect = ({
         className="relative bg-gray-900 text-gray-100"
       >
         <button
-          className="flex w-12 cursor-pointer items-center justify-between gap-1 px-2 py-1 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
+          className="group flex w-12 cursor-pointer items-center justify-between gap-1 px-2 py-1 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
           onClick={() => {
             setOpen(!open);
           }}
@@ -53,7 +53,9 @@ export const InstancesAmountSelect = ({
 
           <span>
             <ChevronDownIcon
-              className={`h-3 w-3 ${open ? 'rotate-180' : ''}`}
+              className={`h-5 w-5 rounded-full bg-gray-700 p-1 transition-[colors,transform] group-hover:bg-gray-500 dark:bg-gray-900 dark:group-hover:bg-gray-800 ${
+                open ? 'rotate-180' : ''
+              }`}
             />
           </span>
         </button>
