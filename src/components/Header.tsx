@@ -14,7 +14,7 @@ const Header = () => {
       {/* Empty div for intersection observer */}
       <div ref={ref}></div>
       <header
-        className={`sticky top-0 z-10 transition-colors duration-300 ${
+        className={`sticky top-0 z-50 transition-colors duration-300 ${
           isIntersecting === false &&
           'bg-gray-900/80 text-gray-100 before:absolute before:inset-0 before:-z-10 before:backdrop-blur-sm'
         }`}
