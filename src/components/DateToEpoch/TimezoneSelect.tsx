@@ -64,6 +64,7 @@ export default function TimezoneSelect({
                   isActive ? 'bg-gray-700 dark:bg-gray-500' : ''
                 }`}
                 disabled={isActive}
+                tabIndex={open ? 0 : -1}
               >
                 {option.label}
               </button>

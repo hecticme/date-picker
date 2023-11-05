@@ -82,6 +82,7 @@ export default function ThemeButton() {
           return (
             <li key={index}>
               <button
+                tabIndex={open ? 0 : -1}
                 className={`flex w-full items-center justify-between gap-2 rounded px-2 py-1 text-left text-gray-900 transition-colors hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-800 ${
                   themeOption.value === theme
                     ? 'pointer-events-none bg-gray-300 hover:bg-gray-300 dark:bg-gray-900 dark:hover:bg-gray-900'

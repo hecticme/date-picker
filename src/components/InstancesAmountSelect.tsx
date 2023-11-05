@@ -72,6 +72,7 @@ export const InstancesAmountSelect = ({
             return (
               <li key={index}>
                 <button
+                  tabIndex={open ? 0 : -1}
                   value={option.value}
                   onClick={handleChangeInstAmount}
                   className={`w-full min-w-[2rem] px-2 py-1 text-left transition-colors hover:bg-gray-700 dark:hover:bg-gray-500 ${
