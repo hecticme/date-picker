@@ -19,7 +19,7 @@ export default function CommonUtils() {
           setOpen(!open);
         }}
       >
-        <span className="flex items-center gap-1">
+        <span className="flex items-center gap-1 text-sm sm:text-base">
           Common utilities
           <WrenchScrewdriverIcon className="h-5 w-5" />
         </span>
@@ -35,7 +35,7 @@ export default function CommonUtils() {
 
       <div
         aria-hidden={!open}
-        className={`absolute right-0 z-10 flex max-w-[280px] flex-col gap-1 bg-gray-100 px-6 py-4 shadow-md outline outline-2 outline-gray-900 transition-[opacity,top] dark:bg-gray-900 dark:outline-gray-200 ${
+        className={`absolute left-0 z-10 flex max-w-[280px] flex-col gap-1 bg-gray-100 px-6 py-4 shadow-md outline outline-2 outline-gray-900 transition-[opacity,top] dark:bg-gray-900 dark:outline-gray-200 sm:left-[auto] sm:right-0 ${
           open
             ? 'top-[120%] opacity-100'
             : 'pointer-events-none top-[110%] opacity-0'
