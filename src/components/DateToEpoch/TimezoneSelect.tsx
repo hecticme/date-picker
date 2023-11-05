@@ -28,7 +28,7 @@ export default function TimezoneSelect({
   return (
     <div ref={ref} className="relative bg-gray-900 text-gray-100">
       <button
-        className="flex w-[4.4rem] cursor-pointer items-center justify-between gap-1 px-2 py-1 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
+        className="group flex w-[5rem] cursor-pointer items-center justify-between gap-1 px-2 py-1 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
         onClick={() => {
           setOpen(!open);
         }}
@@ -38,14 +38,18 @@ export default function TimezoneSelect({
         </span>
 
         <span>
-          <ChevronDownIcon className={`h-3 w-3 ${open ? 'rotate-180' : ''}`} />
+          <ChevronDownIcon
+            className={`h-5 w-5 rounded-full bg-gray-700 p-1 transition-[colors,transform] group-hover:bg-gray-500 dark:bg-gray-900 dark:group-hover:bg-gray-800 ${
+              open ? 'rotate-180' : ''
+            }`}
+          />
         </span>
       </button>
 
       <ul
         aria-hidden={open ? 'false' : 'true'}
-        className={`absolute top-[110%] bg-gray-900 px-1 py-2 dark:bg-gray-700 ${
-          open ? 'flex flex-col gap-2' : 'hidden'
+        className={`absolute top-[110%] flex flex-col gap-2 bg-gray-900 px-1 py-2 transition-[top,opacity] dark:bg-gray-700 ${
+          open ? 'top-[120%] opacity-100' : 'top-[110%] opacity-0'
         }`}
       >
         {timezoneOptions.map((option, index) => {
