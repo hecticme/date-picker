@@ -19,7 +19,7 @@ export default function CommonUtils() {
           setOpen(!open);
         }}
       >
-        <span className="flex items-center gap-1">
+        <span className="flex items-center gap-1 text-sm sm:text-base">
           Common utilities
           <WrenchScrewdriverIcon className="h-5 w-5" />
         </span>
