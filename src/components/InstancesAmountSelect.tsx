@@ -62,8 +62,8 @@ export const InstancesAmountSelect = ({
 
         <ul
           aria-hidden={!open}
-          className={`absolute top-[110%] bg-gray-900 px-1 py-2 dark:bg-gray-700 ${
-            open ? 'flex flex-col gap-2' : 'hidden'
+          className={`absolute flex flex-col gap-2 bg-gray-900 px-1 py-2 transition-[top,opacity] dark:bg-gray-700 ${
+            open ? 'top-[120%] opacity-100' : 'top-[110%] opacity-0'
           }`}
         >
           {options.map((option, index) => {
