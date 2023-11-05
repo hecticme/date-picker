@@ -63,7 +63,9 @@ export const InstancesAmountSelect = ({
         <ul
           aria-hidden={!open}
           className={`absolute flex flex-col gap-2 bg-gray-900 px-1 py-2 transition-[top,opacity] dark:bg-gray-700 ${
-            open ? 'top-[120%] opacity-100' : 'top-[110%] opacity-0'
+            open
+              ? 'top-[120%] opacity-100'
+              : 'pointer-events-none top-[110%] opacity-0'
           }`}
         >
           {options.map((option, index) => {
@@ -72,6 +74,7 @@ export const InstancesAmountSelect = ({
             return (
               <li key={index}>
                 <button
+                  tabIndex={open ? 0 : -1}
                   value={option.value}
                   onClick={handleChangeInstAmount}
                   className={`w-full min-w-[2rem] px-2 py-1 text-left transition-colors hover:bg-gray-700 dark:hover:bg-gray-500 ${

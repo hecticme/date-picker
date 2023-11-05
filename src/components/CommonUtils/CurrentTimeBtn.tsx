@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import dayjs from 'dayjs';
 
-export default function CurrentTimeBtn() {
+type CurrentTimeBtnProps = {
+  isVisible: boolean;
+};
+
+export default function CurrentTimeBtn({ isVisible }: CurrentTimeBtnProps) {
   const [timestamp, setTimestamp] = useState(dayjs().unix());
 
   return (
@@ -11,6 +15,7 @@ export default function CurrentTimeBtn() {
         onClick={() => {
           setTimestamp(dayjs().unix());
         }}
+        tabIndex={isVisible ? 0 : -1}
       >
         Get current unix timestamp
       </button>

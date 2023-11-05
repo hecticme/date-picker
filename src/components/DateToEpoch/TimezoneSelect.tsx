@@ -47,9 +47,11 @@ export default function TimezoneSelect({
       </button>
 
       <ul
-        aria-hidden={open ? 'false' : 'true'}
+        aria-hidden={!open}
         className={`absolute top-[110%] flex flex-col gap-2 bg-gray-900 px-1 py-2 transition-[top,opacity] dark:bg-gray-700 ${
-          open ? 'top-[120%] opacity-100' : 'top-[110%] opacity-0'
+          open
+            ? 'top-[120%] opacity-100'
+            : 'pointer-events-none top-[110%] opacity-0'
         }`}
       >
         {timezoneOptions.map((option, index) => {
@@ -64,6 +66,7 @@ export default function TimezoneSelect({
                   isActive ? 'bg-gray-700 dark:bg-gray-500' : ''
                 }`}
                 disabled={isActive}
+                tabIndex={open ? 0 : -1}
               >
                 {option.label}
               </button>

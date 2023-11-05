@@ -1,5 +1,5 @@
 // Components
-import CurrentTimmeBtn from './CurrentTimeBtn';
+import CurrentTimeBtn from './CurrentTimeBtn';
 // Icons
 import {
   WrenchScrewdriverIcon,
@@ -36,10 +36,12 @@ export default function CommonUtils() {
       <div
         aria-hidden={!open}
         className={`absolute right-0 z-10 flex max-w-[280px] flex-col gap-1 bg-gray-100 px-6 py-4 shadow-md outline outline-2 outline-gray-900 transition-[opacity,top] dark:bg-gray-900 dark:outline-gray-200 ${
-          open ? 'top-[120%] opacity-100' : 'top-[110%] opacity-0'
+          open
+            ? 'top-[120%] opacity-100'
+            : 'pointer-events-none top-[110%] opacity-0'
         }`}
       >
-        <CurrentTimmeBtn />
+        <CurrentTimeBtn isVisible={open} />
       </div>
     </div>
   );
