@@ -24,7 +24,7 @@ const Header = () => {
         >
           <section className="flex items-center gap-2">
             <h1
-              className={`text-2xl font-bold ${
+              className={`text-lg font-bold sm:text-xl md:text-2xl ${
                 isIntersecting === false && 'text-gray-100'
               }`}
             >

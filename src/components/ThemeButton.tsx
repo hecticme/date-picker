@@ -68,7 +68,7 @@ export default function ThemeButton() {
         }}
         className="flex items-center justify-between gap-2 rounded bg-gray-200 px-2 py-1 text-gray-900 transition-colors hover:bg-gray-100 dark:bg-gray-700 dark:text-gray-200"
       >
-        Theme
+        <span className="hidden sm:inline">Theme</span>
         {themeOptions.find((element) => element.value === theme)?.icon}
       </button>
 

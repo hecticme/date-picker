@@ -13,7 +13,7 @@ function App() {
       <Header />
 
       <main className="mx-auto max-w-[90rem] px-2 pt-12 md:px-4">
-        <section className="mb-8 flex items-center justify-between">
+        <section className="mb-4 flex flex-col justify-between gap-3 sm:mb-8 sm:flex-row sm:items-center">
           <InstancesAmountSelect
             amount={instancesAmount}
             setAmount={setInstancesAmount}
