@@ -1,5 +1,5 @@
 // Components
-import CurrentTimmeBtn from './CurrentTimeBtn';
+import CurrentTimeBtn from './CurrentTimeBtn';
 // Icons
 import {
   WrenchScrewdriverIcon,
@@ -41,7 +41,7 @@ export default function CommonUtils() {
             : 'pointer-events-none top-[110%] opacity-0'
         }`}
       >
-        <CurrentTimmeBtn isVisible={open} />
+        <CurrentTimeBtn isVisible={open} />
       </div>
     </div>
   );
