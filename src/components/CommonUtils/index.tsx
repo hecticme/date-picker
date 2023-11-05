@@ -41,7 +41,7 @@ export default function CommonUtils() {
             : 'pointer-events-none top-[110%] opacity-0'
         }`}
       >
-        <CurrentTimmeBtn />
+        <CurrentTimmeBtn isVisible={open} />
       </div>
     </div>
   );
