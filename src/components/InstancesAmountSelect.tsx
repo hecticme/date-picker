@@ -28,7 +28,7 @@ export const InstancesAmountSelect = ({
   };
 
   return (
-    <div className="mb-8 flex items-center gap-3">
+    <div className="flex items-center gap-3">
       <label
         htmlFor="date-picker-instances-amount"
         className="text-xl font-bold"
@@ -42,7 +42,7 @@ export const InstancesAmountSelect = ({
         className="relative bg-gray-900 text-gray-100"
       >
         <button
-          className="flex w-12 cursor-pointer items-center justify-between gap-1 px-2 py-1 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
+          className="group flex max-w-[4rem] cursor-pointer items-center justify-between gap-2 px-2 py-1 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
           onClick={() => {
             setOpen(!open);
           }}
@@ -53,15 +53,19 @@ export const InstancesAmountSelect = ({
 
           <span>
             <ChevronDownIcon
-              className={`h-3 w-3 ${open ? 'rotate-180' : ''}`}
+              className={`h-5 w-5 rounded-full bg-gray-700 p-1 transition-[colors,transform] group-hover:bg-gray-500 dark:bg-gray-900 dark:group-hover:bg-gray-800 ${
+                open ? 'rotate-180' : ''
+              }`}
             />
           </span>
         </button>
 
         <ul
-          aria-hidden={open ? 'false' : 'true'}
-          className={`absolute top-[110%] bg-gray-900 px-1 py-2 dark:bg-gray-700 ${
-            open ? 'flex flex-col gap-2' : 'hidden'
+          aria-hidden={!open}
+          className={`absolute flex flex-col gap-2 bg-gray-900 px-1 py-2 transition-[top,opacity] dark:bg-gray-700 ${
+            open
+              ? 'top-[120%] opacity-100'
+              : 'pointer-events-none top-[110%] opacity-0'
           }`}
         >
           {options.map((option, index) => {
@@ -70,6 +74,7 @@ export const InstancesAmountSelect = ({
             return (
               <li key={index}>
                 <button
+                  tabIndex={open ? 0 : -1}
                   value={option.value}
                   onClick={handleChangeInstAmount}
                   className={`w-full min-w-[2rem] px-2 py-1 text-left transition-colors hover:bg-gray-700 dark:hover:bg-gray-500 ${

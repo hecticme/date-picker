@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Header from '@components/Header';
 import DatePicker from '@components/DatePicker';
 import InstancesAmountSelect from '@components/InstancesAmountSelect';
+import CommonUtils from '@src/components/CommonUtils';
 
 function App() {
   const [instancesAmount, setInstancesAmount] = useState(1);
@@ -12,10 +13,14 @@ function App() {
       <Header />
 
       <main className="mx-auto max-w-[90rem] px-2 pt-12 md:px-4">
-        <InstancesAmountSelect
-          amount={instancesAmount}
-          setAmount={setInstancesAmount}
-        />
+        <section className="mb-8 flex items-center justify-between">
+          <InstancesAmountSelect
+            amount={instancesAmount}
+            setAmount={setInstancesAmount}
+          />
+
+          <CommonUtils />
+        </section>
 
         <section className="grid grid-cols-1 justify-center gap-10 md:grid-cols-2">
           {[...Array(instancesAmount).keys()].map((instance) => (

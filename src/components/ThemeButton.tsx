@@ -73,22 +73,28 @@ export default function ThemeButton() {
       </button>
 
       <ul
-        aria-hidden={open ? 'false' : 'true'}
+        aria-hidden={!open}
         className={`${
-          open ? 'block' : 'hidden'
-        } absolute top-[115%] flex flex-col gap-1 rounded bg-gray-100 p-1 shadow-lg dark:bg-gray-700`}
+          open
+            ? 'top-[120%] opacity-100'
+            : 'pointer-events-none top-[110%] opacity-0'
+        } absolute flex flex-col gap-1 rounded bg-gray-100 p-1 shadow-lg transition-[top,opacity] dark:bg-gray-700`}
       >
         {themeOptions.map((themeOption, index) => {
+          const isActived = themeOption.value === theme;
+
           return (
             <li key={index}>
               <button
+                tabIndex={open ? 0 : -1}
                 className={`flex w-full items-center justify-between gap-2 rounded px-2 py-1 text-left text-gray-900 transition-colors hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-800 ${
-                  themeOption.value === theme
-                    ? 'pointer-events-none bg-gray-300 hover:bg-gray-300 dark:bg-gray-900 dark:hover:bg-gray-900'
+                  isActived
+                    ? 'bg-gray-300 hover:bg-gray-300 dark:bg-gray-900 dark:hover:bg-gray-900'
                     : ''
                 }`}
                 value={themeOption.value}
                 onClick={handleChangeTheme}
+                disabled={isActived}
               >
                 {themeOption.label}
                 {themeOption.icon}
