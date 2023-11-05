@@ -28,7 +28,7 @@ export default function TimezoneSelect({
   return (
     <div ref={ref} className="relative bg-gray-900 text-gray-100">
       <button
-        className="group flex w-[4.4rem] cursor-pointer items-center justify-between gap-1 px-2 py-1 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
+        className="group flex w-[5rem] cursor-pointer items-center justify-between gap-1 px-2 py-1 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
         onClick={() => {
           setOpen(!open);
         }}
