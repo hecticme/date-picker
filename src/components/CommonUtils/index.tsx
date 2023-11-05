@@ -14,7 +14,7 @@ export default function CommonUtils() {
   return (
     <div ref={ref} className="relative">
       <button
-        className="group flex items-center justify-between gap-2 bg-gray-900 px-3 py-1 font-bold text-gray-100 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
+        className="group flex items-center justify-between gap-2 bg-gray-900 px-3 py-2 font-bold text-gray-100 transition-colors hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
         onClick={() => {
           setOpen(!open);
         }}
@@ -35,7 +35,7 @@ export default function CommonUtils() {
 
       <div
         aria-hidden={!open}
-        className={`absolute right-0 z-10 flex max-w-[280px] flex-col gap-1 bg-gray-100 px-2 py-1 shadow-md outline outline-2 outline-gray-900 transition-[opacity,top] dark:bg-gray-900 dark:outline-gray-200 ${
+        className={`absolute right-0 z-10 flex max-w-[280px] flex-col gap-1 bg-gray-100 px-6 py-4 shadow-md outline outline-2 outline-gray-900 transition-[opacity,top] dark:bg-gray-900 dark:outline-gray-200 ${
           open ? 'top-[120%] opacity-100' : 'top-[110%] opacity-0'
         }`}
       >
