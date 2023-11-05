@@ -61,7 +61,7 @@ export const InstancesAmountSelect = ({
         </button>
 
         <ul
-          aria-hidden={open ? 'false' : 'true'}
+          aria-hidden={!open}
           className={`absolute top-[110%] bg-gray-900 px-1 py-2 dark:bg-gray-700 ${
             open ? 'flex flex-col gap-2' : 'hidden'
           }`}
