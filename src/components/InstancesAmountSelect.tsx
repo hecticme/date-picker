@@ -31,7 +31,7 @@ export const InstancesAmountSelect = ({
     <div className="flex items-center gap-3">
       <label
         htmlFor="date-picker-instances-amount"
-        className="text-xl font-bold"
+        className="text-lg font-bold sm:text-xl"
       >
         Converters amount
       </label>
